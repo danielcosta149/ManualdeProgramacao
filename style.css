@@ -17,7 +17,7 @@ button:hover{
     transform: scale(1,1.1);
 }
 
-div{
+.titulo{
     color: rgb(24, 70, 110);
     display: flex;
     align-content: center;
@@ -51,4 +51,15 @@ li{
     list-style: none;
     font-weight: bold;
     margin: 5px;
+}
+
+/* Agora é a parte dos códigos de abas interativas */
+
+.content{
+    display: none;
+}
+
+.content.show{
+    display: flex;
+
 }
