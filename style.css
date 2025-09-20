@@ -29,25 +29,44 @@ button:hover{
     margin-bottom: 35px;
 }
 
-nav{
+.tab-buttons{
     display: flex;
     gap: 10px;
 }
 
-button{
+
+
+.tab-btn{
         background-color: rgb(67, 148, 219);
         border-radius: 10%;
         border-color: rgb(46, 137, 218);
-        border-width: 2px;
+        border-width: 3px;
         border-style: solid;
         padding: 3px 10px;
         cursor: pointer;
         width: 100px;
-        transition: 100ms;
+        color: rgb(24, 70, 110);
+        transition: background-color .2s ease-in;
     }
+
+.tab-btn.active{
+    background-color: rgb(34, 124, 202);
+    color: white;
+    border-color: rgb(4, 102, 189);
+
+}
+.tab-btn.active:hover{
+    background-color: rgb(32, 114, 185);
+    color: white;
+}
+
+.tab-btn:hover{
+    background-color: rgb(108, 173, 230);
+}
+
+
     
 li{
-    color: rgb(24, 70, 110);
     list-style: none;
     font-weight: bold;
     margin: 5px;
