@@ -7,7 +7,6 @@
 header{
     border: rgb(24, 70, 110) solid;
     display: flex;
-    margin: 5px 5px 0px 5px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.6);
     padding: 20px 10px 10px 10px;    
     background-color: rgb(96, 162, 219);
@@ -28,6 +27,7 @@ div{
     justify-items: center;
     font-family: verdana;
     font-weight: 900;
+    margin-bottom: 35px;
 }
 
 nav{
