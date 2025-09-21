@@ -3,6 +3,10 @@
     padding: 0px;
 }
 
+html{
+    scrollbar-color: rgb(56, 145, 223) rgb(222, 237, 250);
+    scrollbar-width: thin;
+}
 
 header{
     border: rgb(24, 70, 110) solid;
@@ -118,7 +122,7 @@ button:hover{
 }
 
 #nav:hover{
-    overflow-y: auto;;
+    overflow-y: auto;
 }
 
 #nav li{
@@ -127,7 +131,7 @@ button:hover{
     font-style: unset;
     font-weight: bold;
     margin: 5px;
-    padding: 5px;
+    padding: 0px;
     background-color: rgb(56, 145, 223);
     cursor: pointer;
     border-radius: 5px;
@@ -135,10 +139,14 @@ button:hover{
 }
 
 #nav li a{
+    display: block;
     text-decoration: none;
+    padding: 5px;
+    width: 100%;
     font-style: unset;
-    color: aliceblue;
+    color: rgb(24, 70, 110);
 }
+
 
 
 #nav li:hover{
@@ -148,6 +156,9 @@ button:hover{
 #nav li:active{
     transform: scale(1.1);
 }
+#nav li a:active{
+    color: white;
+}
 
 /* main.tab-contents{
     margin-top: 120px
@@ -156,3 +167,4 @@ button:hover{
 #JS h1, #GIT h1 {
     scroll-margin-top: 160px; /* Altere este valor para um pouco mais do que a altura do seu header */
 }
+
