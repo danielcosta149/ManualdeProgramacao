@@ -13,7 +13,7 @@ header{
     flex-direction: column;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1;
 }
 
 button:hover{
@@ -93,7 +93,8 @@ button:hover{
     align-content: center;
     flex-direction: column;
     width: 100%;
-
+    position: static;
+    /* margin: 150px 0px 0px 200px; */
 }
 
 /* JavaScript */
@@ -102,15 +103,22 @@ button:hover{
     display: flex;
     flex-direction: column;
     width: 200px;
-    height: 100vh;
+    height: calc(100vh - 160px);
     padding: 5px;
     gap: 10px;
     background-color: rgb(96, 162, 219);
     box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.6);
     border: rgb(24, 70, 110) solid;
-    position: sticky;
-    top: 100px;
-    z-index: 1;
+    position: fixed;
+    z-index: 1000;
+    top: 147px;
+    overflow-y: visible; 
+    scrollbar-color: rgb(56, 145, 223) rgb(222, 237, 250);
+    scrollbar-width: thin;
+}
+
+#nav:hover{
+    overflow-y: auto;;
 }
 
 #nav li{
@@ -144,3 +152,7 @@ button:hover{
 /* main.tab-contents{
     margin-top: 120px
 } */
+
+#JS h1, #GIT h1 {
+    scroll-margin-top: 160px; /* Altere este valor para um pouco mais do que a altura do seu header */
+}
