@@ -115,8 +115,8 @@ button:hover{
     border: rgb(24, 70, 110) solid;
     position: fixed;
     z-index: 1000;
-    top: 147px;
-    overflow-y: visible; 
+    top: 144px;
+    overflow-y: hidden; 
     scrollbar-color: rgb(56, 145, 223) rgb(222, 237, 250);
     scrollbar-width: thin;
 }
