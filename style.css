@@ -16,7 +16,12 @@ header{
     z-index: 1;
 }
 
-button:hover{
+html{
+    scrollbar-width: thin;
+    scrollbar-color: rgb(56, 145, 223) rgb(222, 237, 250);
+}
+
+button.tab-btn:hover{
     transform: scale(1,1.1);
 }
 
@@ -99,12 +104,12 @@ button:hover{
 
 /* JavaScript */
 
-#nav{
-    display: flex;
+.tab-nav{
+    display: none;
     flex-direction: column;
     width: 200px;
     height: calc(100vh - 160px);
-    padding: 5px;
+    padding: 50px 5px 5px 5px;
     gap: 10px;
     background-color: rgb(96, 162, 219);
     box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.6);
@@ -115,13 +120,16 @@ button:hover{
     overflow-y: visible; 
     scrollbar-color: rgb(56, 145, 223) rgb(222, 237, 250);
     scrollbar-width: thin;
+
+    transform: translateX(-100%); /* Move a nav para fora da tela */
+    transition: 0.4s ease-in-out; /* Adiciona uma transição suave */
 }
 
-#nav:hover{
+.tab-nav:hover{
     overflow-y: auto;;
 }
 
-#nav li{
+.tab-nav li{
     list-style: none;
     text-decoration: none;
     font-style: unset;
@@ -134,18 +142,18 @@ button:hover{
     transition: 40ms;
 }
 
-#nav li a{
+.tab-nav li a{
     text-decoration: none;
     font-style: unset;
     color: aliceblue;
 }
 
 
-#nav li:hover{
+.tab-nav li:hover{
     transform: scale(1.02, 1.1);
 }
 
-#nav li:active{
+.tab-nav li:active{
     transform: scale(1.1);
 }
 
@@ -155,4 +163,35 @@ button:hover{
 
 #JS h1, #GIT h1 {
     scroll-margin-top: 160px; /* Altere este valor para um pouco mais do que a altura do seu header */
+}
+
+/* Botão do menu de navegação */
+.nav-toggle {
+    position: fixed;
+    top: 155px; /* Ajuste para ficar abaixo do header */
+    left: 10px;
+    z-index: 1001;
+    background-color: rgb(24, 70, 110);
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    transition: 0.4s ease-out;
+
+}
+
+.nav-toggle.open {
+
+    transform: translateX(10rem); /* Move o botão para o lado direito da nav */
+    transition: 0.4s ease-in-out;
+    background-color: #f44336; /* Cor de fundo para indicar que está fechando */
+}
+
+.tab-nav.open {
+    transform: translateX(0); /* Move a nav para a posição original (visível) */
+    
 }
