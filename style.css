@@ -56,22 +56,23 @@ main.tab-contents {
 .tab-buttons{
     display: flex;
     gap: 10px;
+    font-family: sans-serif;
 }
 
 
 
 .tab-btn{
-        background-color: rgb(56, 145, 223);
-        border-radius: 10px;
-        border-color: rgb(46, 137, 218);
-        border-width: 3px;
-        border-style: solid;
-        padding: 3px 10px;
-        cursor: pointer;
-        width: 100px;
-        color: rgb(24, 70, 110);
-        transition: background-color .2s ease-in;
-    }
+    background-color: rgb(56, 145, 223);
+    border-radius: 10px;
+    border-color: rgb(46, 137, 218);
+    border-width: 3px;
+    border-style: solid;
+    padding: 3px 10px;
+    cursor: pointer;
+    width: 100px;
+    color: rgb(24, 70, 110);
+    transition: background-color .2s ease-in;
+}
 
 .tab-btn.active{
     background-color: rgb(34, 124, 202);
@@ -92,7 +93,7 @@ main.tab-contents {
     
 .tab-buttons li{
     list-style: none;
-    font-weight: bold;
+    font-weight: bold;  
     margin: 5px;
 }
 
@@ -102,23 +103,32 @@ main.tab-contents {
     display: none;
 }
 
+
 .content.show{
     display: flex;
-
+    flex-direction: row;
 }
 
 .infos{
     display: flex;
     flex-wrap: nowrap;
-    align-items: center;
+    align-items: flex-start;
     align-content: center;
     flex-direction: column;
     width: 100%;
     position: static;
+    font-family: calibri;
+    margin-left: 60px;
+    transition: margin-left 0.4s ease-in-out;
     /* margin: 150px 0px 0px 200px; */
 }
 
-/* JavaScript */
+.infos.shifted {
+    margin-left: 235px; /* 200px da largura da nav + 10px de espaço */
+    transition: margin-left 0.4s ease-in-out; /* Adiciona uma transição suave */
+}
+
+/* Navegação */
 
 .tab-nav{
     display: none;
@@ -136,6 +146,8 @@ main.tab-contents {
     overflow-y: hidden; 
     scrollbar-color: rgb(56, 145, 223) rgb(222, 237, 250);
     scrollbar-width: thin;
+    font-weight: bold;
+    font-family: lucida sans;
 
     transform: translateX(-100%); /* Move a nav para fora da tela */
     transition: 0.4s ease-in-out; /* Adiciona uma transição suave */
@@ -190,7 +202,7 @@ main.tab-contents {
 /* Botão do menu de navegação */
 .nav-toggle {
     position: fixed;
-    top: 155px; /* Ajuste para ficar abaixo do header */
+    top: 160px; /* Ajuste para ficar abaixo do header */
     left: 10px;
     z-index: 1001;
     background-color: rgb(24, 70, 110);

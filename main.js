@@ -45,10 +45,17 @@ navToggleBtn.addEventListener('click', () => {
     const activeContent = document.querySelector('.content.show');
     if (activeContent) {
         const activeNav = activeContent.querySelector('.tab-nav');
-        if (activeNav) {
+        const infosContainer = activeContent.querySelector('.infos');
+
+        if (activeNav && infosContainer) {
+            // Alterna a classe 'open' na nav
             activeNav.classList.toggle('open');
+            // Alterna a classe 'open' no botão também
             navToggleBtn.classList.toggle('open');
-            
+            // Alterna a classe 'shifted' no contêiner de infos
+            infosContainer.classList.toggle('shifted');
+
+            // Muda o ícone do botão e a sua cor
             if (activeNav.classList.contains('open')) {
                 navToggleBtn.innerHTML = 'X';
                 navToggleBtn.style.backgroundColor = 'rgb(240, 50, 50)';
