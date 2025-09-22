@@ -43,7 +43,7 @@ button.tab-btn:hover{
 }
 
 
-img{
+.titulo img{
     width: 80px;
 }
 
@@ -113,6 +113,7 @@ main.tab-contents {
     display: flex;
     flex-wrap: nowrap;
     align-items: flex-start;
+    margin-bottom: 20px;
     align-content: center;
     flex-direction: column;
     width: 100%;
@@ -131,7 +132,7 @@ main.tab-contents {
 }
 
 .infos p{
-    font-size: 20px;
+    font-size: 18px;
     text-indent: 50px;
 }
 
