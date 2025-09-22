@@ -116,6 +116,8 @@ main.tab-contents {
     align-content: center;
     flex-direction: column;
     width: 100%;
+    margin-top: 10px;
+    margin-right: 25px;
     position: static;
     font-family: calibri;
     margin-left: 60px;
@@ -126,6 +128,11 @@ main.tab-contents {
 .infos.shifted {
     margin-left: 235px; /* 200px da largura da nav + 10px de espaço */
     transition: margin-left 0.4s ease-in-out; /* Adiciona uma transição suave */
+}
+
+.infos p{
+    font-size: 20px;
+    text-indent: 50px;
 }
 
 /* Navegação */
