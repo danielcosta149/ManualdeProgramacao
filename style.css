@@ -1,14 +1,13 @@
+/* Tags Principais */
 *{
     margin: 0px;
     padding: 0px;
 }
-
 html{
     scrollbar-color: rgb(56, 145, 223) rgb(222, 237, 250);
     scrollbar-width: thin;
     overflow-y: hidden;
 }
-
 header{
     border: rgb(24, 70, 110) solid;
     display: flex;
@@ -20,13 +19,14 @@ header{
     top: 0;
     z-index: 1000;
 }
-
-
-
-button.tab-btn:hover{
-    transform: scale(1,1.1);
+main {
+    height: calc(100vh - 160px);
+    overflow-y: scroll;
+    scrollbar-width: thin;
 }
 
+
+/* Parte superior do título e ícone */
 .titulo{
     display: flex;
     justify-content: flex-start;
@@ -41,74 +41,93 @@ button.tab-btn:hover{
     font-weight: 900;
     margin-bottom: 0px;
 }
-
-
 .titulo img{
     width: 80px;
 }
 
-main.tab-contents {
-    height: calc(100vh - 150px);
-    overflow-y: scroll;
-    scrollbar-width: thin;
-}
-
+/* Seção dos botões de navegação superior */
 .tab-buttons{
     display: flex;
     gap: 10px;
     font-family: sans-serif;
 }
+.tab-buttons button{
+    list-style: none;
+    font-weight: bold;  
+    margin: 5px;
+}
 
-
-
+/* Estilo dos botões individuais da navegação superior */
 .tab-btn{
     background-color: rgb(56, 145, 223);
     border-radius: 10px;
     border-color: rgb(46, 137, 218);
     border-width: 3px;
     border-style: solid;
-    padding: 3px 10px;
+    padding: 5px 10px;
     cursor: pointer;
     width: 100px;
     color: rgb(24, 70, 110);
     transition: background-color .2s ease-in;
 }
-
+.tab-btn:hover{
+    transform: scale(1,1.1);
+}
 .tab-btn.active{
     background-color: rgb(34, 124, 202);
     color: white;
     border-color: rgb(4, 102, 189);
-
 }
 .tab-btn.active:hover{
     background-color: rgb(32, 114, 185);
     color: white;
 }
-
 .tab-btn:hover{
     background-color: rgb(108, 173, 230);
 }
 
 
-    
-.tab-buttons li{
-    list-style: none;
-    font-weight: bold;  
-    margin: 5px;
+/* Botão do menu de navegação */
+.nav-toggle {
+    position: fixed;
+    top: 160px;
+    left: 10px;
+    z-index: 1001;
+    background-color: rgb(24, 70, 110);
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    transition: 0.4s ease-out;
+}
+.nav-toggle.open {
+    transform: translateX(9.2rem);
+    transition: 0.4s ease-in-out;
+    background-color: #f44336;
+}
+.tab-nav.open {
+    transform: translateX(0); /* Move a nav para a posição original (visível) */
 }
 
-/* Agora é a parte dos códigos de abas interativas */
 
+/* Seção do main: navegação e informações */
 .content{
     display: none;
 }
-
-
 .content.show{
     display: flex;
     flex-direction: row;
 }
+.content h1 {
+    scroll-margin-top: 160px;
+}
 
+
+/* Estilo das Informações/Conteúdos */
 .infos{
     display: flex;
     flex-wrap: nowrap;
@@ -123,21 +142,30 @@ main.tab-contents {
     font-family: calibri;
     margin-left: 60px;
     transition: margin-left 0.4s ease-in-out;
-    /* margin: 150px 0px 0px 200px; */
 }
-
 .infos.shifted {
-    margin-left: 235px; /* 200px da largura da nav + 10px de espaço */
-    transition: margin-left 0.4s ease-in-out; /* Adiciona uma transição suave */
+    margin-left: 235px;
+    transition: margin-left 0.4s ease-in-out;
 }
-
 .infos p{
     font-size: 18px;
     text-indent: 50px;
 }
+.infos h2{
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+.infos h3{
+    font-size: 25px;
+    margin-top: 30px;
+}
+.infos h4{
+    font-size: 20px;
+    margin-top: 30px;
+}
 
-/* Navegação */
 
+/* Estilo da Navegação de tópicos*/
 .tab-nav{
     display: none;
     flex-direction: column;
@@ -160,11 +188,9 @@ main.tab-contents {
     transform: translateX(-100%); /* Move a nav para fora da tela */
     transition: 0.4s ease-in-out; /* Adiciona uma transição suave */
 }
-
 .tab-nav:hover{
     overflow-y: auto;;
 }
-
 .tab-nav li{
     list-style: none;
     text-decoration: none;
@@ -177,7 +203,6 @@ main.tab-contents {
     border-radius: 5px;
     transition: 40ms;
 }
-
 .tab-nav li a{
     display: block;
     text-decoration: none;
@@ -186,12 +211,9 @@ main.tab-contents {
     font-style: unset;
     color: rgb(24, 70, 110);
 }
-
-
 .tab-nav li:hover{
     transform: scale(1.02, 1.1);
 }
-
 .tab-nav li:active{
     transform: scale(1.1);
 }
@@ -199,41 +221,4 @@ main.tab-contents {
     color: white;
 }
 
-/* main.tab-contents{
-    margin-top: 120px
-} */
 
-#JS h1, #GIT h1 {
-    scroll-margin-top: 160px; /* Altere este valor para um pouco mais do que a altura do seu header */
-}
-
-/* Botão do menu de navegação */
-.nav-toggle {
-    position: fixed;
-    top: 160px; /* Ajuste para ficar abaixo do header */
-    left: 10px;
-    z-index: 1001;
-    background-color: rgb(24, 70, 110);
-    color: white;
-    border: none;
-    padding: 7px 12px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 20px;
-    width: 40px;
-    height: 40px;
-    transition: 0.4s ease-out;
-
-}
-
-.nav-toggle.open {
-
-    transform: translateX(9.2rem); /* Move o botão para o lado direito da nav */
-    transition: 0.4s ease-in-out;
-    background-color: #f44336; /* Cor de fundo para indicar que está fechando */
-}
-
-.tab-nav.open {
-    transform: translateX(0); /* Move a nav para a posição original (visível) */
-    
-}
