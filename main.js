@@ -28,7 +28,13 @@ const tabClicked = (tab) => {
         nav.style.display = 'none'; // Continua escondendo todas as navs
     });
     
-    // 5. Exibe apenas a nav da aba ativa, se ela existir
+    // 5. NOVO RESET: Reseta a posição de todos os contêineres de informação
+    // ESSA LINHA RESOLVE O BUG DO TEXTO EMPURRADO AO VOLTAR DE ABA
+    document.querySelectorAll('.infos').forEach(infos => {
+        infos.classList.remove('shifted');
+    });
+
+    // 6. Exibe apenas a nav da aba ativa, se ela existir
     const activeNav = document.querySelector(`#${contentId} .tab-nav`);
     if (activeNav) {
         activeNav.style.display = 'flex'; // Exibe a nav correspondente
@@ -40,7 +46,7 @@ tabs.forEach(tab => tab.addEventListener('click', () => tabClicked(tab)));
 const currentActiveTab = document.querySelector('.tab-btn.active');
 tabClicked(currentActiveTab);
 
-// Lógica para abrir/fechar a nav da aba ativa
+// Lógica para abrir/fechar a nav da aba ativa (Mantida)
 navToggleBtn.addEventListener('click', () => {
     const activeContent = document.querySelector('.content.show');
     if (activeContent) {
@@ -48,14 +54,11 @@ navToggleBtn.addEventListener('click', () => {
         const infosContainer = activeContent.querySelector('.infos');
 
         if (activeNav && infosContainer) {
-            // Alterna a classe 'open' na nav
             activeNav.classList.toggle('open');
-            // Alterna a classe 'open' no botão também
             navToggleBtn.classList.toggle('open');
-            // Alterna a classe 'shifted' no contêiner de infos
-            infosContainer.classList.toggle('shifted');
+            // O toggle que empurra e desempurra o texto
+            infosContainer.classList.toggle('shifted'); 
 
-            // Muda o ícone do botão e a sua cor
             if (activeNav.classList.contains('open')) {
                 navToggleBtn.innerHTML = 'X';
                 navToggleBtn.style.backgroundColor = 'rgb(240, 50, 50)';
