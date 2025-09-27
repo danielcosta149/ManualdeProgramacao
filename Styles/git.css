@@ -1,18 +1,39 @@
 #gitimg{
     width: 500px;
-    margin-left: 25vw;
 }
 
-#gitinf ul{
+#gitinf ul{ 
     list-style-type: disc;
     margin-left: 1.5em;
 }
-#gitinf ul li{
+#gitinf ol{ 
+    list-style-type: decimal;
+
+    margin-left: 1.5em;
+}
+
+#gitinf ul li, ol li{
+    margin-top: 10px;
     font-size: 18px;
+}
+
+#gitbashimg{
+    margin-top: 10px;
+    width: 500px;
+}
+
+#p-spaced{
+    margin-top: 10px;
+}
+
+.gitimage{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
 }
 
 code{
     font-style: italic ;
-    text-decoration: underline;
     font-family: Microsoft sans-serif;
 }

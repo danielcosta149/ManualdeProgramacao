@@ -96,37 +96,61 @@
                     </ul>
                 </nav>
                 <div class="infos" id="gitinf">
+                    <section class="begin">
+                        <h2 id="concept1git">GIT - GITHUB</h2>
+                        <p>
+                            Olá, seja bem vindo à seção GIT - GITHUB. Neste espaço você encontrará informações e dicas sobre como utilizar o Git e o GitHub para versionamento de código, colaboração em projetos e controle de versões. Explore os tópicos ao lado para começar!
+                        </p>
+                        <div class="gitimage"><img src="img/git/git e github.png" alt="Git e GitHub" id="gitimg"></div>
+                    </section>
 
-                    <h2 id="concept1git">GIT - GITHUB</h2>
-                    <p>
-                        Olá, seja bem vindo à seção GIT - GITHUB. Neste espaço você encontrará informações e dicas sobre como utilizar o Git e o GitHub para versionamento de código, colaboração em projetos e controle de versões. Explore os tópicos ao lado para começar!
-                    </p>
-                    <img src="img/git e github.png" alt="Git e GitHub" id="gitimg">
-                    <h3 id="concept2git">Primeiros Passos:</h3>
-                    <p>
-                        Antes de você começar a conhecer os "códigos" do Git, você precisa saber a parte da criação de uma conta no GitHub 
-                        e como deve ser feita a instalação.
-                    </p>
-                        <h4><strong>1. Criando uma conta no GitHub:</strong></h4>
-                        <ul>
-                            <li>Acesse o site <a href="https://github.com/" target="_blank">github.com</a> e clique em "Sign up".</li>
-                            <li>Preencha seus dados (e-mail, senha, nome de usuário) e siga as instruções para confirmar sua conta.</li>
-                        </ul>
-                        <h4><strong>2. Instalando o Git:</strong></h4>
-                        <ul>
-                            <li>
-                                <b>Windows:</b> Baixe o instalador em <a href="https://git-scm.com/download/win" target="_blank">git-scm.com</a> e siga o assistente de instalação.
-                            </li>
-                            <li>
-                                <b>Mac:</b> Use o Homebrew com o comando <code>brew install git</code> ou baixe em <a href="https://git-scm.com/download/mac" target="_blank">git-scm.com</a>.
-                            </li>
-                            <li>
-                                <b>Linux:</b> Use o gerenciador de pacotes, por exemplo: <code>sudo apt-get install git</code> (Debian/Ubuntu).
-                            </li>
-                        </ul>
-                        <p>Após instalar, abra o terminal e digite <code>git --version</code> para verificar se a instalação foi bem-sucedida.</p>
+                    <section class="firststeps">
+                        <h3 id="concept2git">Primeiros Passos:</h3>
+                        <p>
+                            Antes de você começar a conhecer os "códigos" do Git, você precisa saber a parte da criação de uma conta no GitHub 
+                            e como deve ser feita a instalação.
+                        </p>
+                            <h4><strong>1. Criando uma conta no GitHub:</strong></h4>
+                            <ol>
+                                <li>Acesse o site <a href="https://github.com/" target="_blank">github.com</a> e clique em "Sign up".</li>
+                                <li>Preencha seus dados (e-mail, senha, nome de usuário) e siga as instruções para confirmar sua conta.</li>
+                            </ol>
+                            <h4><strong>2. Instalando o Git:</strong></h4>
+                            <ul>
+                                <li>
+                                    <b>Windows:</b> Baixe o instalador em <a href="https://git-scm.com/download/win" target="_blank">git-scm.com</a> e siga o assistente de instalação.
+                                </li>
+                                <li>
+                                    <b>Mac:</b> Use o Homebrew com o comando <code>brew install git</code> ou baixe em <a href="https://git-scm.com/download/mac" target="_blank">git-scm.com</a>.
+                                </li>
+                                <li>
+                                    <b>Linux:</b> Use o gerenciador de pacotes, por exemplo: <code>sudo apt-get install git</code> (Debian/Ubuntu).
+                                </li>
+                            </ul>
+                            <p>Após instalar, abra o terminal e digite <code>git --version</code> para verificar se a instalação foi bem-sucedida.</p>
+                            
+                            <h4><strong>3. Configurando o Git:</strong></h4>
+                            <p>
+                                Para o git validar seus commits, é necessário que você faça uma espécie de login no Git Bash, um login nele mesmo.
+                                Por agora você colocará apenas o seu nome de usuário e email, utilizando o seguintes comandos:
+                                <ol>
+                                    <li><code>git config --global user.name 'seu nome'</code><span> (Sem aspas simples)</span></li>
+                                    <img src="img/git/gitusername.png" alt="Git Bash: Configuração do Nome" id="gitbashimg">
+                                    <li><code>git config --global user.email 'seu email'</code><span> (Sem aspas simples)</span></li>
+                                    <img src="img/git/gituseremail.png" alt="Git Bash: Configuração do Email" id="gitbashimg">
+                                </ol> 
 
-
+                                
+                            </p>
+                            <p id="p-spaced">
+                                Se quiser ver o "resultado" deste cadastro, basta inserir o comando: 
+                                <ul>
+                                    <li><code>git config --list</code></li>
+                                    <img src="img/git/gituserlist.png" alt="Git Bash: Lista que mostra o nome de usuário e email" id="gitbashimg">
+                                </ul>
+                            </p>   
+                    </section>
+                    
                 </div>
             </section>
 

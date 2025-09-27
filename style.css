@@ -135,7 +135,7 @@ main {
     margin-bottom: 20px;
     align-content: center;
     flex-direction: column;
-    width: 100%;
+    width: 1500px;
     margin-top: 10px;
     margin-right: 25px;
     position: static;
@@ -149,7 +149,7 @@ main {
 }
 .infos p{
     font-size: 18px;
-    text-indent: 50px;
+    text-indent: 40px;
 }
 .infos h2{
     font-size: 35px;
