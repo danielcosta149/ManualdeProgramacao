@@ -7,11 +7,13 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='Styles/git.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='Styles/sql.css'>
     <link rel="shortcut icon" href="img/manualicon.png" type="image/x-icon">
 
     
 </head>
 <body>
+    <div id="image-overlay"></div>
     <div id="container">
         <header>
             <div class="titulo">
@@ -73,9 +75,9 @@
             <!-- JavaScript -->
             <section class="content" id="JS">
                 <nav id="nav-js" class="tab-nav">
-
-                    <li><a href="#concept1js">JavaScript</a></li>
-
+                    <ul>
+                        <li><a href="#concept1js">JavaScript</a></li>
+                    </ul>
                 </nav>
                 <div class="infos">
 
@@ -105,10 +107,10 @@
                     </ul>
                 </nav>
                 <div class="infos" id="gitinf">
-                    <section class="begin">
+                    <section class="begingit">
                         <h2 id="concept1git">GIT - GITHUB</h2>
                         <p>
-                            Olá, seja bem vindo à seção GIT - GITHUB. Neste espaço você encontrará informações e dicas sobre como utilizar o Git e o GitHub para versionamento de código, colaboração em projetos e controle de versões. Explore os tópicos ao lado para começar!
+                            Olá, seja bem vindo à seção GIT - GITHUB. Neste espaço você encontrará informações e dicas sobre como utilizar o Git e o GitHub para versionamento de código, colaboração em projetos e controle de versões.
                         </p>
                         <div class="gitimage"><img src="img/git/git e github.png" alt="Git e GitHub" id="gitimg"></div>
                     </section>
@@ -166,11 +168,106 @@
             <!-- MySQL -->
             <section class="content" id="SQL">
                 <nav id="nav-js" class="tab-nav">
-                
+                    <ul>
+                        <li><a href="#concept1sql">MySQL</a></li>
+                        <li><a href="#concept2sql">Instalação</a></li>
+                        <li><a href="#concept3sql">Configuração</a></li>
+                    </ul>
                 </nav>
-                <div class="infos">
-                    <h2>SQL</h2>
-                    <p>Essa parte não está pronta, dê uma olhada nas outras seções.</p>
+                <div class="infos" id="sqlinf">
+                    <section class="begin-mysql">
+                        <h2 id="concept1sql">MySQL</h2>
+                        <p>Olá, seja bem vindo à seção MySQL. Neste espaço você encontrará informações e dicas sobre como utilizar o MySQL e suas extensões para criação de banco de dados, linkagem com PHP e muito mais.</p>
+                        <div class="sqlimage"><img src="img/sql/mysqllogo.png" alt="MySQL logo" id="sqlimg1"></div>
+                    </section>
+
+                    <section class="mysql-instalation">
+                        <h3 id="concept2sql">Instalação:</h3>
+                        <p>
+                            Antes de começar a criar tabelas, entidades e atributos, é necessário realizar o processo de instalação. Logo abaixo, estará listado o passo a passo da instalação do MySQL no Windows:
+
+                            <ol>
+                                <li>
+                                    Acesse o site oficial do MySQL: 
+                                    <a href="https://dev.mysql.com/downloads/installer/" target="_blank">dev.mysql.com/downloads/installer/</a>
+                                </li>
+                                <li>
+                                    Baixe o instalador recomendado para Windows (MySQL Installer).
+                                    <img id="sqlimg2" src="img/sql/firstinstallersql.PNG" alt="Primeira parte da instalação do MySQL">
+                                </li>
+                                <li>
+                                    <a href="#concept3sql">Configure o MySQL.</a>
+                                </li>
+                                <li>
+                                    Finalize a instalação e aguarde a configuração dos serviços.
+                                </li>
+                                <li>
+                                    Após a instalação, você pode acessar o MySQL Workbench para gerenciar bancos de dados de forma gráfica.
+                                </li>
+                            </ol>
+                            <p>
+                                Para verificar se o MySQL foi instalado corretamente, abra o prompt de comando e digite:<br>
+                                <code>mysql --version</code>
+                            </p>
+                        </p>
+                    </section>
+                    <section class="sql-configuration">
+                        <h3 id="concept3sql">Configuração:</h3>
+                        <p>Segue abaixo o passo a passo da configuração do MySQL baseado no vídeo <a href="https://www.youtube.com/watch?v=adIIAEc3Q04&list=PLx4x_zx8csUgQUjExcssR3utb3JIX6Kra">Instalando o MySQL e o SQLiteStudio - Curso de SQL - Aula 01 (Canal: CFB Cursos)</a>. Para mais detalhes ou tirar alguma dúvida recomendo que confira o vídeo da fonte.</p>
+                        <ol>
+                            <li>Quando a instalação terminar, você deverá abrir o instalador que foi baixado no seu navegador, abrindo ele, permita todos os acessos até chegar na tela abaixo.</li>
+                            <li>Nesta parte você deverá marcar a opção "Full" ou a "Developer Default" se tiver, como não aparece para mim, eu coloco na opção "Full" mesmo que é quase a mesma coisa. Opção selecionada, clique em "Next"
+                                <img class="configurationsql" src="img/sql/config-sql/configurationmysql1.png" alt="Configuração do MySql - Parte 1">
+                            </li>
+                            <li>Nas próximas etapas, você deverá clicar em "Execute", "Next", "Execute", "Next" respectivamente, <em>são as telas de download e instalação dos produtos.</em> 
+                                (A segunda imagem não contém todos os itens que foram baixados por causa que deu um erro ao baixar esses dois produtos que aparecem, eu precisei sair e retornar, entretando apareceu apenas esses dois que ocasionaram o erro, de qualquer forma eu consegui baixar eles):
+                                <p id="p-disabled" class="p-relative">
+                                    <img src="img/sql/config-sql/configurationmysql2.png" alt="Configuração do MySql - Parte 2" class="configurationsqlI">
+                                    <img src="img/sql/config-sql/configurationmysql3.png" alt="Configuração do MySql - Parte 3" class="configurationsqlI">
+                                    <img src="img/sql/config-sql/configurationmysql4.png" alt="Configuração do MySql - Parte 4" class="configurationsqlI">
+                                    <img src="img/sql/config-sql/configurationmysql5.png" alt="Configuração do MySql - Parte 5" class="configurationsqlI">
+                                </p>
+                            </li>
+                            <li>Próximo passo é configurar 3 produtos específicos: 'MySQL Server 8.0.43', 'MySQL Router 8.0.43' e o 'Samples and Examples 8.0.43'. Apenas clique em "Next":
+                                <img class="configurationsql" src="img/sql/config-sql/configurationmysql6.PNG" alt="Configuração do MySql - Parte 6">
+                                </li>
+                            <li><strong>Configuração do 'MySQL Server 8.0.43':</strong> Faça, em sequência, o que está nas imagens demonstrativas logo abaixo.
+                                <p id="p-disabled" class="p-relative">
+                                    <img src="img/sql/config-sql/configurationmysql7.PNG" alt="Configuração do MySql - Parte 7" class="configurationsqlI">
+                                    <img src="img/sql/config-sql/configurationmysql8.png" alt="Configuração do MySql - Parte 8" class="configurationsqlI">
+                                    <img src="img/sql/config-sql/configurationmysql9.png" alt="Configuração do MySql - Parte 9" class="configurationsqlI">
+                                    <img src="img/sql/config-sql/configurationmysql10.png" alt="Configuração do MySql - Parte 10" class="configurationsqlI">
+                                    <img src="img/sql/config-sql/configurationmysql11.png" alt="Configuração do MySql - Parte 11" class="configurationsqlI">
+                                    <img src="img/sql/config-sql/configurationmysql12.png" alt="Configuração do MySql - Parte 12" class="configurationsqlI">
+                                    <img src="img/sql/config-sql/configurationmysql13.png" alt="Configuração do MySql - Parte 13" class="configurationsqlI">
+                                </p>
+                            </li>
+                            <li><strong>Configuração do 'MySQL Router 8.0.43': </strong> Faça, em sequência, o que está nas imagens demonstrativas logo abaixo.
+                                <p id="p-disabled">
+                                    <img src="img/sql/config-sql/configurationmysql14.png" alt="Configuração do MySql - Parte 14" class="configurationsql InL">
+                                    <img src="img/sql/config-sql/configurationmysql15.png" alt="Configuração do MySql - Parte 15" class="configurationsql InL">
+                                </p>
+                            </li>
+                            <li><strong>Configuração do 'Samples and Examples 8.0.43': </strong> Faça, em sequência, o que está nas imagens demonstrativas logo abaixo.
+                                <p id="p-disabled" class="p-relative">
+                                    <img src="img/sql/config-sql/configurationmysql16.png" alt="Configuração do MySql - Parte 16" class="configurationsqlI">
+                                    <img src="img/sql/config-sql/configurationmysql17.png" alt="Configuração do MySql - Parte 17" class="configurationsqlI">
+                                    <img src="img/sql/config-sql/configurationmysql18.png" alt="Configuração do MySql - Parte 18" class="configurationsqlI">
+                                    <img src="img/sql/config-sql/configurationmysql19.png" alt="Configuração do MySql - Parte 19" class="configurationsqlI">
+                                    <img src="img/sql/config-sql/configurationmysql20.png" alt="Configuração do MySql - Parte 20" class="configurationsqlI">
+                                </p>
+                            </li>
+                            <li>Por fim terminamos nossa instalação e configuração, agora é só dar "Next" e "Finish". Não se preocupe, você ainda pode reconfigurar tudo isso que fizemos, basta ir de novo no instalador dele e vai aparecer a tela para você remover, adicionar e reconfigurar.
+                                <p id="p-disabled">
+                                    <img src="img/sql/config-sql/configurationmysql21.png" alt="Configuração do MySql - Parte 21" class="configurationsql InL">
+                                    <img src="img/sql/config-sql/configurationmysql22.png" alt="Configuração do MySql - Parte 22" class="configurationsql InL">
+                                </p>
+                            </li>
+                        </ol>
+
+
+                    </section>
+
                 </div>
             </section>
 

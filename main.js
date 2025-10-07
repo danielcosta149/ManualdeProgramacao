@@ -69,3 +69,40 @@ navToggleBtn.addEventListener('click', () => {
         }
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.configurationsqlI');
+    const overlay = document.getElementById('image-overlay');
+    
+    // FUNÇÃO PARA FECHAR O MODO AMPLIADO
+    function closeLightbox() {
+        overlay.classList.remove('is-active'); // Esconde o Overlay
+        
+        // Remove a classe de ampliação de TODAS as imagens
+        images.forEach(img => {
+            img.classList.remove('is-expanded');
+        });
+    }
+
+    // 1. Ação ao Clicar em QUALQUER Imagem
+    images.forEach(img => {
+        img.addEventListener('click', (e) => {
+            
+            // Se a imagem já estiver expandida, apenas fecha.
+            if (e.currentTarget.classList.contains('is-expanded')) {
+                closeLightbox();
+                return; // Encerra a função
+            }
+
+            // Garante que todas as outras imagens estejam fechadas antes de abrir a nova
+            closeLightbox(); 
+
+            // Liga o Overlay e a Imagem Clicada
+            overlay.classList.add('is-active'); // Mostra o Overlay
+            e.currentTarget.classList.add('is-expanded'); // Amplia a imagem clicada
+        });
+    });
+    
+    // 2. Ação ao Clicar no Fundo Escuro (para fechar)
+    overlay.addEventListener('click', closeLightbox);
+});
