@@ -172,6 +172,8 @@
                         <li><a href="#concept1sql">MySQL</a></li>
                         <li><a href="#concept2sql">Instalação</a></li>
                         <li><a href="#concept3sql">Configuração</a></li>
+                        <li><a href="#concept4sql">Criação de um BD</a></li>
+                        <li><a href="#concept5sql">1ª Lista de Comandos</a></li>
                     </ul>
                 </nav>
                 <div class="infos" id="sqlinf">
@@ -264,9 +266,39 @@
                                 </p>
                             </li>
                         </ol>
-
-
                     </section>
+                    <section class="creation-sql">
+                        <h3 id="concept4sql">Criação de um Banco de Dados</h3>
+                        <p>
+                            Agora veremos como utilizar o MySQL Workbench, em específico, a criação de um Banco de Dados do zero. Posteriormente veremos os comandos e códigos para facilitar a criação desses banco de dados através do Query (a caixa de comandos do MySQL), por agora iremos apenas interagir com os botões interativos do próprio MySQL. Segue abaixo o passo a passo para realizar isso.
+                            <ol>
+                                <li>Abrindo o MySQL Workbench 8.0, veremos esta tela:
+                                    <div class="sqlimage"><img src="img/sql/aberturasql.png" alt="Tela inicial do MySQL Workbench" id="sqlimg3"></div>
+                                </li>
+                                <li>Clicando no Local instance (que já vem de fábrica após a instalação), seremos levados para outra guia do MySQL onde iremos trabalhar com bancos de dados, lá temos "Schemas" já vindos de fábrica e poderemos criar nossos próprios Schemas também ou Banco de Dados como preferir. (Obs: Quando você clicar pela primeira vez no Local instance, ele vai pedir aquela senha que você criou, mas é só na primeira vez, depois ele não pergunta mais.)
+                                    <div class="sqlimage"><img src="img/sql/workbench1.png" alt="Guia de criação dos Schemas" id="sqlimg3"></div>
+                                </li>
+                                <li>Próximo passo é, clicar no "Create a new schema in the connected server", um botão localizado na parte superior da tela, para a criação de um novo Schema/BD.
+                                    <img src="img/sql/abasuperior1.PNG" alt="Parte superior do MySQL Workbench" id="sqlimg4">
+                                </li>
+                                <li>Clicando nele, uma nova guia será aberta para a criação desse schema, nessa parte você colocará o nome do seu banco de dados e outros configurações como o Charset (que por convenção deixaremos no 'utf8'). Feito isto, clique em "Apply".
+                                    <p id="p-disabled">
+                                        <img src="img/sql/workbench2.png" alt="Editando o nome e o charset do schema" id="sqlimg3-p">
+                                        <img src="img/sql/workbench3.PNG" alt="Aplicando as configurações do schema" id="sqlimg3-p">
+                                    </p>
+                                </li>
+                                <li>Uma nova tela será aberta, por agora, clicaremos em "Apply" mesmo pra continuar; E "Finish" para criar o Schema.
+                                    
+                                </li>
+                            </ol>
+                        </p>
+                    </section>
+                    <!-- <section class="comands-sql-1">
+                        <h3 id="concept5sql">1ª Lista de Comandos</h3>
+                        <p>
+                            Aqui veremos os primeiros e básicos comandos utilizados no início de uma criação de banco de dados
+                        </p>
+                    </section> -->
 
                 </div>
             </section>

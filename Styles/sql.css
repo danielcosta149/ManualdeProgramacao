@@ -13,9 +13,6 @@
     font-size: 18px;
 }
 
-#sqlimg1{
-    width: 280px;
-}
 
 .sqlimage{
     display: flex;
@@ -24,12 +21,49 @@
     justify-items: center;
 }
 
+#sqlimg1{
+    width: 280px;
+}
 #sqlimg2{
     width: 500px;
     margin-top: 10px;
     border: 1px dashed black;
     display: block;
 }
+#sqlimg2-p{
+    width: 500px;
+    margin-top: 10px;
+    border: 1px dashed black;
+    display: inline-block;
+}
+#sqlimg3{
+    border: 1px dashed black;
+    width: 800px;
+    margin-top: 10px;
+    text-align: center;
+    display: block;
+}
+#sqlimg3-p{
+    border: 1px dashed black;
+    width: 800px;
+    margin-top: 10px;
+    text-align: center;
+    display: inline-block;
+}
+#sqlimg4{
+    border: 1px dashed black;
+    width: 400px;
+    margin-top: 10px;
+    display: block;
+}
+#sqlimg4-p{
+    border: 1px dashed black;
+    width: 400px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+
 .configurationsql{
     margin-top: 10px;
     width: 500px;
