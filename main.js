@@ -1,15 +1,87 @@
+// =========================================================
+// 1. VARIÁVEIS GLOBAIS E CONFIGURAÇÕES
+// =========================================================
+const loadedSections = {}; // Monitora o que já foi carregado via fetch
+const overlay = document.getElementById('image-overlay');
 const tabs = document.querySelectorAll('.tab-btn');
 const contents = document.querySelectorAll('.content');
 const navToggleBtn = document.getElementById('nav-toggle');
 
+// =========================================================
+// 2. FUNÇÕES DO LIGHTBOX (AMPLIAÇÃO DE IMAGENS)
+// =========================================================
+function closeLightbox() {
+    overlay.classList.remove('is-active');
+    document.querySelectorAll('.is-expanded').forEach(img => {
+        img.classList.remove('is-expanded');
+    });
+}
+
+function handleImageClick(e) {
+    if (e.currentTarget.classList.contains('is-expanded')) {
+        closeLightbox();
+        return;
+    }
+    closeLightbox(); 
+    overlay.classList.add('is-active');
+    e.currentTarget.classList.add('is-expanded');
+}
+
+function setupLightbox(images) {
+    images.forEach(img => {
+        // removeEventListener evita duplicar o evento se a função for chamada de novo
+        img.removeEventListener('click', handleImageClick); 
+        img.addEventListener('click', handleImageClick);
+    });
+}
+
+overlay.addEventListener('click', closeLightbox);
+
+// =========================================================
+// 3. FUNÇÃO DE CARREGAMENTO EXTERNO (INCLUDE)
+// =========================================================
+const loadSectionContent = (contentId, filePath) => {
+    // Se já carregou uma vez, não faz nada (performance)
+    if (loadedSections[contentId]) return;
+
+    const contentElement = document.getElementById(contentId);
+    
+    if (contentElement) {
+        fetch(filePath)
+            .then(response => {
+                if (!response.ok) throw new Error(`Erro: ${response.status}`);
+                return response.text();
+            })
+            .then(data => {
+                contentElement.innerHTML = data;
+                loadedSections[contentId] = true; 
+                
+                // Reativa o Lightbox para as novas imagens que acabaram de chegar
+                const newImages = contentElement.querySelectorAll('.configurationsqlI');
+                setupLightbox(newImages); 
+
+                // CORREÇÃO DA NAV: Força a exibição da barra lateral assim que o arquivo carrega
+                const internalNav = contentElement.querySelector('.tab-nav');
+                if (internalNav) {
+                    internalNav.style.display = 'flex';
+                }
+            })
+            .catch(error => {
+                console.error(`Falha ao carregar ${contentId}:`, error);
+                contentElement.innerHTML = `<p style="color:red">Erro ao carregar conteúdo.</p>`;
+            });
+    }
+};
+
+// =========================================================
+// 4. LÓGICA DE TROCA DE ABAS
+// =========================================================
 const tabClicked = (tab) => {
-    // 1. Esconde todos os conteúdos das abas
+    // Esconde conteúdos e remove destaques de botões
     contents.forEach(content => content.classList.remove('show'));
-    // 2. Remove a classe 'active' de todos os botões
     tabs.forEach(btn => btn.classList.remove('active'));
     
     tab.classList.add('active');
-
     const contentId = tab.getAttribute('content-id');
     const content = document.getElementById(contentId);
     
@@ -17,36 +89,51 @@ const tabClicked = (tab) => {
         content.classList.add('show');
     }
 
-    // 3. Reseta o botão de controle
+    // Gerencia os Includes (Git e SQL)
+    if (contentId === 'GIT') {
+        loadSectionContent('GIT', 'githubsection.html');
+    } else if (contentId === 'SQL') {
+        loadSectionContent('SQL', 'mysqlsection.html');
+    }
+
+    // Reset da Interface (Botão Hamburguer e Navs)
     navToggleBtn.classList.remove('open');
     navToggleBtn.innerHTML = '☰';
     navToggleBtn.style.backgroundColor = 'rgb(24, 70, 110)'; 
 
-    // 4. Esconde todas as navs
     document.querySelectorAll('.tab-nav').forEach(nav => {
         nav.classList.remove('open');
-        nav.style.display = 'none'; // Continua escondendo todas as navs
+        nav.style.display = 'none';
     });
     
-    // 5. NOVO RESET: Reseta a posição de todos os contêineres de informação
-    // ESSA LINHA RESOLVE O BUG DO TEXTO EMPURRADO AO VOLTAR DE ABA
     document.querySelectorAll('.infos').forEach(infos => {
         infos.classList.remove('shifted');
     });
 
-    // 6. Exibe apenas a nav da aba ativa, se ela existir
+    // Mostra a nav se ela já existir no DOM (para abas que não são via fetch)
     const activeNav = document.querySelector(`#${contentId} .tab-nav`);
     if (activeNav) {
-        activeNav.style.display = 'flex'; // Exibe a nav correspondente
+        activeNav.style.display = 'flex';
     }
 };
 
+// Listeners das abas
 tabs.forEach(tab => tab.addEventListener('click', () => tabClicked(tab)));
 
-const currentActiveTab = document.querySelector('.tab-btn.active');
-tabClicked(currentActiveTab);
+// =========================================================
+// 5. INICIALIZAÇÃO E EVENTOS GERAIS
+// =========================================================
+document.addEventListener('DOMContentLoaded', () => {
+    // Inicia na aba que estiver marcada como 'active' no HTML
+    const currentActiveTab = document.querySelector('.tab-btn.active');
+    if (currentActiveTab) tabClicked(currentActiveTab);
 
-// Lógica para abrir/fechar a nav da aba ativa (Mantida)
+    // Lightbox inicial para imagens que já existam no index.html
+    const initialImages = document.querySelectorAll('.configurationsqlI');
+    setupLightbox(initialImages);
+});
+
+// Botão Hamburguer (Mobile/Tablet)
 navToggleBtn.addEventListener('click', () => {
     const activeContent = document.querySelector('.content.show');
     if (activeContent) {
@@ -56,7 +143,6 @@ navToggleBtn.addEventListener('click', () => {
         if (activeNav && infosContainer) {
             activeNav.classList.toggle('open');
             navToggleBtn.classList.toggle('open');
-            // O toggle que empurra e desempurra o texto
             infosContainer.classList.toggle('shifted'); 
 
             if (activeNav.classList.contains('open')) {
@@ -68,41 +154,4 @@ navToggleBtn.addEventListener('click', () => {
             }
         }
     }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const images = document.querySelectorAll('.configurationsqlI');
-    const overlay = document.getElementById('image-overlay');
-    
-    // FUNÇÃO PARA FECHAR O MODO AMPLIADO
-    function closeLightbox() {
-        overlay.classList.remove('is-active'); // Esconde o Overlay
-        
-        // Remove a classe de ampliação de TODAS as imagens
-        images.forEach(img => {
-            img.classList.remove('is-expanded');
-        });
-    }
-
-    // 1. Ação ao Clicar em QUALQUER Imagem
-    images.forEach(img => {
-        img.addEventListener('click', (e) => {
-            
-            // Se a imagem já estiver expandida, apenas fecha.
-            if (e.currentTarget.classList.contains('is-expanded')) {
-                closeLightbox();
-                return; // Encerra a função
-            }
-
-            // Garante que todas as outras imagens estejam fechadas antes de abrir a nova
-            closeLightbox(); 
-
-            // Liga o Overlay e a Imagem Clicada
-            overlay.classList.add('is-active'); // Mostra o Overlay
-            e.currentTarget.classList.add('is-expanded'); // Amplia a imagem clicada
-        });
-    });
-    
-    // 2. Ação ao Clicar no Fundo Escuro (para fechar)
-    overlay.addEventListener('click', closeLightbox);
 });

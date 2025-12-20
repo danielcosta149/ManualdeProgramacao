@@ -20,7 +20,8 @@ header{
     z-index: 1000;
 }
 main {
-    height: calc(100vh - 200px);
+    height: calc(100vh - 170px);
+    /* height: 75vh; */
     overflow-y: scroll;
     scrollbar-width: thin;
 }

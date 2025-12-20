@@ -19,6 +19,17 @@
     align-content: center;
     justify-content: center;
     justify-items: center;
+    margin: 20px auto;
+}
+.sqlimage-H{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin: 20px auto;
+    
 }
 
 #sqlimg1{
